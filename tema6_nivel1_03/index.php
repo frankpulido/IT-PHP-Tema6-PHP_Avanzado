@@ -11,6 +11,7 @@ Sobreescribe alguna de las lógicas de entre todos los métodos mágicos existen
 RECURSOS :
 https://www.php.net/manual/es/language.oop5.magic.php
 https://medium.com/developers-keep-learning/php-magic-methods-explained-bac7053c007d
+https://www.w3schools.com/php/func_simplexml__tostring.asp
 */
 
 echo "\n\n";
