@@ -18,10 +18,12 @@ class LearningResource {
     private string $name;
     private Theme $theme;
     private Support $support;
-    function __construct(string $name, Theme $theme, Support $support) {
+    private string $url;
+    function __construct(string $name, Theme $theme, Support $support, $url) {
         $this->name = $name;
         $this->theme = $theme;
         $this->support = $support;
+        $this->url = $url;
     }
 
     // Getters
@@ -38,9 +40,23 @@ class LearningResource {
         return $this->support->name; // el atributo es "name", no "case" !!!
     }
 
+    function getUrl() {
+        return $this->url;
+    }
+
+    /* Setters
+
+    function setName(string $name) {
+        $this->name = $name;
+    }
+    function setTheme() {
+
+    }
+    */
+
     // Método propio de la Clase
     function Description() {
-        return "Para estudiar " . $this->theme->name . " esta semana he accedido al recurso " . $this->name . ". El formato del recurso es " . $this->support->name . ".\n";
+        return "Para estudiar " . $this->theme->name . " disponemos del recurso : " . $this->name . ".\nEl formato del recurso es " . $this->support->name . ".\nPuede acceder al recurso a través de este enlace :\n" . $this->url;
     }
     
 }

@@ -12,78 +12,30 @@ https://www.php.net/manual/en/language.namespaces.basics.php
 https://aschmelyun.com/blog/the-difference-between-traits-interfaces-and-abstract-classes-in-php/
 */
 
-/*
-class Car {
-    // Atributos de la clase
-    private $brand;
-    private $nameplate;
-    private $fuel = [];
-    private $maxSpeed;
-
-    // Constructor
-    function __construct($brand, $nameplate, $fuel, $maxSpeed) {
-        $this->brand = $brand;
-        $this->nameplate = $nameplate;
-        $this->fuel = $fuel;
-        $this->maxSpeed = $maxSpeed;
-    }
-
-    // Getters
-
-    public function getBrand() {
-        return $this->brand;
-    }
-
-    public function getNameplate() {
-        return $this->nameplate;
-    }
-
-    public function getFuel() {
-        return $this->fuel;
-    }
-
-    public function getMaxSpeed() {
-        return $this->maxSpeed;
-    }
-
-    // Setters
-
-    public function setBrand($brand) {
-        $this->brand = $brand;
-    }
-
-    public function setNameplate($nameplate) {
-        $this->nameplate = $nameplate;
-    }
-
-    public function setFuel($fuel) {
-        $this->fuel = $fuel;
-    }
-
-    public function setMaxSpeed($maxSpeed) {
-        $this->maxSpeed = $maxSpeed;
-    }
-
-}
-*/
-
 $fuel1 = ["gasoline"];
 $fuel2 = ["gasoline", "electric"];
 $fuel3 = ["diesel"];
 $fuel4 = ["electric"];
 
 $car1 = new Car("Mustang", "XXX-666", $fuel1, 200);
-$car2 = new Car("Volvo", "YYY-777", $fuel3, 180);
+$car2 = new Car("Volvo", "YYY-777", $fuel2, 180);
 $car3 = new Car("Pegasus", "ZZZ-999", $fuel3, 130);
 $car4 = new Car("Tesla", "AAA-111", $fuel4, 150);
 
-echo "\n";
-echo "El Trait Turbo tiene un método Boost que usaremos en el Método actionTurbo de la Clase Car (hay que mejorar este ejercicio) :\n";
-echo "\n";
-$car1->presentation();
-echo "\n";
-$car1->actionTurbo();
-echo "\n";
+$cars = [$car1, $car2, $car3, $car4];
 
+echo "\n";
+echo "Tenemos el siguiente ARRAY de instancias de la Clase Coche :" . PHP_EOL;
+foreach ($cars as $car) {
+    $car->presentation();
+echo "\n";
+}
+echo "\n";
+echo "El Trait Turbo tiene un método Boost que usaremos en el Método actionTurbo de la Clase Car e incrementaremos la velocidad máxima en 50 Km/h :" . PHP_EOL;
+echo "\n";
+foreach ($cars as $car) {
+    $car->actionTurbo();
+echo "\n";
+}
 
 ?>

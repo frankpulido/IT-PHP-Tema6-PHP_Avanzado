@@ -55,10 +55,21 @@ class Car {
 
     // Presentación del coche
 
+    function fuelList () {
+        $array = $this->fuel;
+        $string = $array[0];
+        if (count($array) > 1) {
+            for ($i = 1; $i < count($array); $i++) {
+                $string = $string . " - " . $array[$i];
+            }
+        }
+        return $string;
+    }
+
     function presentation () {
-        echo "Coche marca $this->brand con matrícula $this->nameplate. Combustible :\n";
-        print_r($this->getFuel());
-        echo "Velocidad máxima : $this->maxSpeed\n";
+        echo "Coche marca $this->brand con matrícula $this->nameplate. Combustible : ";
+        echo $this->fuelList() . PHP_EOL;
+        echo "Velocidad máxima : $this->maxSpeed Km/h." . PHP_EOL;
     }
 
     // Usaremos la función Trait Turbo
