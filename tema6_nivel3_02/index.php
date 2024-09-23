@@ -21,7 +21,7 @@ function dataProvider() : array {
     //$faker = Faker\LearningResource::class();
     $faker = Faker\Factory::create();
     for ($i = 0; $i < 10; $i++) {
-        $dataprovider[] = new LearningResource($faker->unique()->sentence(), $faker->shuffle(Theme::cases())[0], $faker->shuffle(Support::cases())[0], $faker->url());
+        $dataprovider[] = new LearningResource($faker->unique()->realText(maxNbChars:75), $faker->shuffle(Theme::cases())[0], $faker->shuffle(Support::cases())[0], $faker->url());
         //$dataprovider[] = new LearningResource($faker->unique()->sentence(), Theme::cases()[array_rand(Theme::cases())], Support::cases()[array_rand(Support::cases())], $faker->url());
     }
     return $dataprovider;
@@ -29,6 +29,13 @@ function dataProvider() : array {
 
 $faker_data = dataProvider();
 var_dump($faker_data);
+
+echo "\n\n";
+foreach($faker_data AS $data) {
+    $instance_detail = $data->Description();
+    echo $instance_detail;
+    echo "\n\n";
+}
 
 /*
 Uso de array_rand() :
